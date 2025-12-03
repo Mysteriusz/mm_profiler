@@ -1,0 +1,8 @@
+CompileFlags:
+  Add:
+    - "-IC:/msys64/ucrt64/include"
+
+    - -Wall
+    - -WX
+    - -Wno-pragma-pack
+    - -O2
