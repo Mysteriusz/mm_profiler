@@ -50,10 +50,45 @@ int log_cache(){
 }
 
 int main(){
-	if (mm_test((struct cpu_info){.freq = 2.5}, 1 << 30) != 0){
-		return GetLastError();
-	}
-
+	/*if (mm_test((struct cpu_info){.freq = 2.5}, 1 << 30) != 0){
+	  	return -1;
+	}*/
+	ca_test(
+		(struct cpu_info){
+			.freq = 4.2
+		},
+		(struct cpu_cache_info){
+			.size = 49152, 
+			.set_count = 64, 
+			.line_size = 49152 / 64 / 12, 
+			.set_size = 49152 / 64, 
+			.ways = 12
+		}
+	);
+	/*ca_test(
+		(struct cpu_info){
+			.freq = 4.4
+		},
+		(struct cpu_cache_info){
+			.size = 1310720,
+			.set_count = 2048,
+			.line_size = 1310720 / 2048 / 10,
+			.set_size = 1310720 / 2048,
+			.ways = 10
+		}
+	);
+	ca_test(
+		(struct cpu_info){
+			.freq = 4.4
+		},
+		(struct cpu_cache_info){
+			.size = 18874368,
+			.set_count = 32768,
+			.line_size = 18874368 / 32768 / 9,
+			.set_size = 18874368 / 32768,
+			.ways = 9
+		}
+	);*/
 	log_cache();
 	return 0;
 }

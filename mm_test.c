@@ -1,14 +1,5 @@
-#define _WIN32_WINNT NTDDI_WIN10_19H1
-
-#include <stdio.h>
-#include <processthreadsapi.h>
-#include <errhandlingapi.h>
-#include <securitybaseapi.h>
-#include <memoryapi.h>
-
 #include "test.h"
 
-#define cyc_to_sec(cyc, hz) (long double)((cyc) / ((hz) * 1e9))
 #define STRIDE 64
 
 #define mm_write(bufsize) ({ \
@@ -41,9 +32,6 @@
 	i = 0; \
 	acc = 0; \
 })
-
-#include <wtypesbase.h>
-#include <winbase.h>
 
 int mm_test(
 	struct cpu_info cpu,
